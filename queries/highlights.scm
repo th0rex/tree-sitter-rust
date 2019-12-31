@@ -42,6 +42,10 @@
   macro: (identifier) @function.macro
   "!" @function.macro)
 
+(scoped_macro_invocation
+  macro: (identifier) @function.macro
+  "!" @function.macro)
+
 ; Function definitions
 
 (function_item (identifier) @function)

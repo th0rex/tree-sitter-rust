@@ -833,6 +833,7 @@ module.exports = grammar({
       $.array_expression,
       $.tuple_expression,
       prec(1, $.macro_invocation),
+      prec(1, $.scoped_macro_invocation),
       $.unit_expression,
       $._expression_ending_with_block,
       $.break_expression,
@@ -841,7 +842,8 @@ module.exports = grammar({
       $.metavariable,
       $.closure_expression,
       $.parenthesized_expression,
-      $.struct_expression
+      $.struct_expression,
+      $.expr_type_ascription
     ),
 
     _expression_ending_with_block: $ => choice(
@@ -857,7 +859,21 @@ module.exports = grammar({
       $.for_expression
     ),
 
+    expr_type_ascription: $ => seq(
+      $._expression,
+      ':',
+      $._type
+    ),
+
     macro_invocation: $ => seq(
+      field('macro', $.identifier),
+      '!',
+      $.token_tree
+    ),
+
+    scoped_macro_invocation: $ => seq(
+      $._path,
+      '::',
       field('macro', $.identifier),
       '!',
       $.token_tree

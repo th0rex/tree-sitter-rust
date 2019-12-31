@@ -142,6 +142,10 @@
         "named": true
       },
       {
+        "type": "expr_type_ascription",
+        "named": true
+      },
+      {
         "type": "field_expression",
         "named": true
       },
@@ -203,6 +207,10 @@
       },
       {
         "type": "scoped_identifier",
+        "named": true
+      },
+      {
+        "type": "scoped_macro_invocation",
         "named": true
       },
       {
@@ -1317,6 +1325,25 @@
         },
         {
           "type": "enum_variant",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expr_type_ascription",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "_expression",
+          "named": true
+        },
+        {
+          "type": "_type",
           "named": true
         }
       ]
@@ -3101,6 +3128,56 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "scoped_macro_invocation",
+    "named": true,
+    "fields": {
+      "macro": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "crate",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "metavariable",
+          "named": true
+        },
+        {
+          "type": "scoped_identifier",
+          "named": true
+        },
+        {
+          "type": "self",
+          "named": true
+        },
+        {
+          "type": "super",
+          "named": true
+        },
+        {
+          "type": "token_tree",
+          "named": true
+        }
+      ]
     }
   },
   {
