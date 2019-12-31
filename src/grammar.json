@@ -4661,7 +4661,7 @@
         },
         {
           "type": "PREC",
-          "value": 1,
+          "value": 2,
           "content": {
             "type": "SYMBOL",
             "name": "scoped_macro_invocation"

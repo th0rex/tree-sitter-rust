@@ -833,7 +833,7 @@ module.exports = grammar({
       $.array_expression,
       $.tuple_expression,
       prec(1, $.macro_invocation),
-      prec(1, $.scoped_macro_invocation),
+      prec(2, $.scoped_macro_invocation),
       $.unit_expression,
       $._expression_ending_with_block,
       $.break_expression,
